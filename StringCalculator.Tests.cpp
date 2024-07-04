@@ -60,7 +60,6 @@ TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiter) {
     std::string input = "//;\n1;2";
     StringCalculator objUnderTest;
     int result = objUnderTest.add(input);
-*/
-
     ASSERT_EQ(result, expectedresult);
 }
+*/
