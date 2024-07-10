@@ -17,4 +17,6 @@ private:
 
       int performAddition(std::vector<int> numbers);
 
+      std::string spiltDelimiterFrom(const std::string token, const char delimiter);
+
 };
