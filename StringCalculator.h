@@ -21,4 +21,6 @@ private:
 
       std::string spiltDelimiter(const std::string token, const char delimiter);
 
+      void checkNegativeValues(const std::vector<int> negativeNumbers);
+
 };
