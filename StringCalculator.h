@@ -1,4 +1,10 @@
+#include <stdio.h>
+#include <string>
 #include <iostream>
+#include <sstream>
+#include <vector>
+#include <algorithm>
+#include <cctype> 
 
 class StringCalculator
 {
