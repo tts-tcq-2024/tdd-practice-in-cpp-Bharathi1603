@@ -1,6 +1,6 @@
 #include "StringCalculator.h"
 
-int StringCalculator::add(const std::string input)
+int StringCalculator::add(std::string input)
 {
   if ((input.empty()) || (input == "0"))
   {
