@@ -11,6 +11,8 @@ int StringCalculator::add(std::string input)
     char delimiter = ',';
     findAndReplaceCharacter(input,'\n', delimiter);
     auto numbers = splitAndFilterNumbers(input,delimiter);
+    std::vector<int> negativeNumbers = getNegativeValues(numbers);
+    checkNegativeValues(negativeNumbers);
     return performAddition(numbers);
   }
   return -1;
@@ -75,6 +77,20 @@ std::string StringCalculator::spiltDelimiter(const std::string token, const char
   }
   
   return numberStr;
+}
+
+std::vector<int> StringCalculator::getNegativeValues(std::vector<int> numbers)
+{
+    std::vector<int> negativeNumbers;
+    for(auto number : numbers)
+    {
+        if (number < 0)
+        {
+            negativeNumbers.push_back(number);
+        }
+    }
+    
+    return negativeNumbers;
 }
 
 void StringCalculator::checkNegativeValues(const std::vector<int> negativeNumbers)
