@@ -31,12 +31,7 @@ std::string StringCalculator::spiltDelimiterFrom(const std::string token, const 
     std::string numberStr;
     for (char ch : token) 
     {
-        if(ch == '-')
-        {
-            numberStr += ch;
-        }
-        
-        if (std::isdigit(ch)) 
+        if((ch == '-') || (std::isdigit(ch)) 
         {
             numberStr += ch;
         }
