@@ -69,3 +69,11 @@ TEST(StringCalculatorAddTests, ExpectSumOnlyForNumbers) {
     int result = objUnderTest.add(input);
     ASSERT_EQ(result, expectedresult);
 }
+
+TEST(StringCalculatorAddTests, ExpectExceptionForNegativeNumbers) {
+    ASSERT_THROW({
+        std::string input = "1,2,3,-5,7,-10";
+        StringCalculator objUnderTest;
+       objUnderTest.add(input);
+        }, std::runtime_error);
+}
