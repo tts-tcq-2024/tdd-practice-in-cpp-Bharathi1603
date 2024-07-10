@@ -76,3 +76,16 @@ std::string StringCalculator::spiltDelimiter(const std::string token, const char
   
   return numberStr;
 }
+
+void StringCalculator::checkNegativeValues(const std::vector<int> negativeNumbers)
+{
+    if(!(negativeNumbers.empty()))
+    {
+        std::stringstream logMessage;
+        for(auto negativeNumber : negativeNumbers)
+        {
+            logMessage << negativeNumber << " ";
+        }
+        throw std::runtime_error("Negative numbers are present! " + logMessage.str());
+    }
+}
