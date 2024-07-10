@@ -9,6 +9,12 @@ int StringCalculator::add(std::string input)
   else
   {
     char delimiter = ',';
+    if (isChangeDelimiterPresent(input))
+    {
+        delimiter = captureNewDelimiter(input);
+        splitChangeDelimiterInfo(input);
+    }
+    
     findAndReplaceCharacter(input,'\n', delimiter);
     auto numbers = splitAndFilterNumbers(input,delimiter);
     std::vector<int> negativeNumbers = getNegativeValues(numbers);
@@ -104,4 +110,36 @@ void StringCalculator::checkNegativeValues(const std::vector<int> negativeNumber
         }
         throw std::runtime_error("Negative numbers are present! " + logMessage.str());
     }
+}
+
+bool StringCalculator::isChangeDelimiterPresent(std::string & str)
+{
+    bool result{false};
+    if(str.length() > 2)
+    {
+        result = ((str.at(0) == '/') && (str.at(1) == '/'));
+    }
+    return result;
+}
+
+
+char StringCalculator::captureNewDelimiter(std::string & str)
+{
+    char temp = '0';
+    if(str.length() > 3)
+    {
+        temp = str.at(2);
+    }
+    return temp;
+    
+}
+
+void StringCalculator::splitChangeDelimiterInfo(std::string & str)
+{
+    std::uint8_t startPosition = 3;
+    if(str.at(3) == '\n')
+    {
+        startPosition +=1;
+    }
+    str = str.substr(startPosition,str.length() - startPosition);
 }
