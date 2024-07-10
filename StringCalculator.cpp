@@ -26,6 +26,25 @@ void StringCalculator::findAndReplaceCharacter(std::string& str, char findCharac
     } 
 }
 
+std::string StringCalculator::spiltDelimiterFrom(const std::string token, const char delimiter)
+{
+    std::string numberStr;
+    for (char ch : token) 
+    {
+        if(ch == '-')
+        {
+            numberStr += ch;
+        }
+        
+        if (std::isdigit(ch)) 
+        {
+            numberStr += ch;
+        }
+    }
+    
+    return numberStr;
+}
+
   std::vector<int> StringCalculator::splitAndFilterNumbers(const std::string& str, char delimiter)
   {
       std::vector<int> numbers;
@@ -34,20 +53,7 @@ void StringCalculator::findAndReplaceCharacter(std::string& str, char findCharac
   
       while (std::getline(ss, token, delimiter)) 
       {
-          std::string numberStr;
-          for (char ch : token) 
-          {
-              if(ch == '-')
-              {
-                  numberStr += ch;
-              }
-              
-              if (std::isdigit(ch)) 
-              {
-                  numberStr += ch;
-              }
-          }
-          
+          std::string numberStr = spiltDelimiterFrom(token, delimiter);
           if (!numberStr.empty()) 
           {
               numbers.push_back(std::stoi(numberStr));
